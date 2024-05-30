@@ -1,0 +1,11 @@
+SOL,5,deep sky blue
+First Wall,2,gray55
+FW Manifold,8,yellow
+Blanket,30,teal
+Shield,2,orange
+Outer Wall,5,red
+Gap,10,white
+Inner Cryostat,8,gray55
+MLI,1,gray80
+77k Stage, 10,blue
+Test,12,green
