@@ -8,4 +8,3 @@ Gap,10,white
 Inner Cryostat,8,gray55
 MLI,1,gray80
 77k Stage, 10,blue
-Test,12,green
