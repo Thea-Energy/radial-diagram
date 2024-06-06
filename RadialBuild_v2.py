@@ -17,23 +17,31 @@ canvas.create_text(10, 55, text="as of 5/27/2024", font = "Consolas 20", anchor=
 
 f = open("Radial_Layers.txt", 'r')
 layers = [line.strip().split(',') for line in f]
-print(layers)
+#print(layers)
 
 segmentHeight = 60
-xStart = 100
+xStart = 50
 yStart = 300
 
-xscale = 7.5
-yscale = 11
+xScale = 7.5
+yScale = 11
 xList = []
 widthList = []
 segList = []
 
-pw = 10
-px1 = xStart-pw*xscale
-segList.append(["Plasma",pw, px1, "PaleGreen1"])
+pw = 10.0
+sw = 5.0
+px1 = xStart
+sx1 = xStart + pw*xScale
+rStart = (pw+sw)*xScale + xStart
+
+segList.append(["Plasma", pw, px1, "PaleGreen1"])
 xList.append(px1)
 widthList.append(pw)
+
+segList.append(["SOL", sw, sx1, "deep sky blue"])
+xList.append(sx1)
+widthList.append(sw)
 
 def rectangle(index):
     name = segList[index][0]
@@ -46,8 +54,8 @@ def rectangle(index):
     label = "{} ({} cm)".format(name, width)
     x1 = xval
     y1 = yStart
-    x2 = xval + width * xscale
-    y2 = yStart + segmentHeight * yscale
+    x2 = xval + width * xScale
+    y2 = yStart + segmentHeight * yScale
     
     mid = (x2+x1)/2
     labelAngle = 60
@@ -68,7 +76,7 @@ def addSegment(seg):
     width = float(seg[1])
     color = seg[2]
 
-    xVal = xList[-1] + widthList[-1] * xscale
+    xVal = xList[-1] + widthList[-1] * xScale
     segList.append([name, width, xVal, color])
     xList.append(xVal)
     widthList.append(width)
@@ -85,22 +93,22 @@ for val in range(len(segList)):
 ## Ruler
 rLength = 220
 rStep = 10
-
 ticY1 = 1000
 ticLen = 10
 ticY2 = ticY1 - ticLen
 ticY3 = ticY1 - ticLen/2
-canvas.create_line(xStart, ticY1, rLength*xscale + xStart, ticY1)
+
+canvas.create_line(rStart, ticY1, rLength*xScale + rStart, ticY1)
 
 for val in range(0, rLength+rStep, rStep):
     print(val)
-    x = xStart + val * xscale
+    x = rStart + val*xScale
     canvas.create_line(x, ticY1, x, ticY2)
     canvas.create_text(x, ticY2+30, text=val, font="Consolas 12")
 
     if val < rLength:
         for j in range(1, rStep):
-            x2 = x + j*xscale
+            x2 = x + j*xScale
             canvas.create_line(x2, ticY1, x2, ticY3 )
 
 
