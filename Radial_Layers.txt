@@ -1,10 +1,14 @@
 SOL,5,deep sky blue
 First Wall,2,gray55
-FW Manifold,8,yellow
-Blanket,30,teal
-Shield,2,orange
-Outer Wall,5,red
-Gap,10,white
-Inner Cryostat,8,gray55
-MLI,1,gray80
-77k Stage, 10,blue
+Breeding Zone,25,pink
+FS/He,1.5,orange
+Breeding Zone,25,pink
+Back Wall,5,red
+FS Shield,32,lawngreen
+He/LiPb Manifold,35,light steel blue
+Gap,2,snow
+Vacuum Vessel, 28,light sky blue
+Gap + Th. Ins., 2.2,gray80
+Coil Case + Ins.,2.2,gray55
+Winding Pack,19.4,yellow
+Strong Back,28,gray80
